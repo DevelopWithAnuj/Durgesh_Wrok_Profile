@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  h1,h2,h3,h4,.font-heading { font-family: 'Poppins', sans-serif; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #F8FAFC; }
+  ::-webkit-scrollbar-thumb { background: #0F3D6E; border-radius: 8px; }
+
+  /* mobile sticky call/whatsapp bar spacing */
+  body { padding-bottom: 72px; }
+  @media (min-width: 1024px) { body { padding-bottom: 0; } }
+

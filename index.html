@@ -17,6 +17,18 @@
     />
 
     <link rel="stylesheet" href="./src/output.css" />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "J9BHgJnPj5KwTtIW8",
+        });
+      })();
+    </script>
   </head>
 
   <body class="bg-white text-ink antialiased">
@@ -40,33 +52,43 @@
         <div
           class="hidden lg:flex items-center gap-7 text-sm font-medium text-ink/75"
         >
-          <a href="#home" class="hover:text-navy transition-colors">Home</a>
-          <a href="#about" class="hover:text-navy transition-colors"
+          <a href="#home" data-lang="navHome" class="hover:text-navy transition-colors">Home</a>
+          <a href="#about" data-lang="navAbout" class="hover:text-navy transition-colors"
             >About Me</a
           >
-          <a href="#services" class="hover:text-navy transition-colors"
+          <a href="#services" data-lang="navServices" class="hover:text-navy transition-colors"
             >Services</a
           >
-          <a href="#work" class="hover:text-navy transition-colors">My Work</a>
-          <a href="#reviews" class="hover:text-navy transition-colors"
+          <a href="#work" data-lang="navWork" class="hover:text-navy transition-colors">My Work</a>
+          <a href="#reviews" data-lang="navReviews" class="hover:text-navy transition-colors"
             >Reviews</a
           >
-          <a href="#contact" class="hover:text-navy transition-colors"
+          <a href="#contact" data-lang="navContact" class="hover:text-navy transition-colors"
             >Contact</a
           >
         </div>
         <div class="hidden lg:flex items-center gap-3">
           <a
             href="tel:+917379121244"
+            data-lang="navCallNow"
             class="inline-flex items-center gap-2 bg-navy text-white font-heading font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-navy-dark transition-colors"
             >📞 Call Now</a
           >
           <a
             href="https://wa.me/7379121244"
             target="_blank"
+            data-lang="navWhatsapp"
             class="inline-flex items-center gap-2 bg-wgreen text-white font-heading font-semibold text-sm px-5 py-2.5 rounded-full hover:brightness-95 transition"
             >💬 WhatsApp</a
           >
+          <button
+            id="langToggleBtn"
+            type="button"
+            aria-label="Switch language"
+            class="inline-flex items-center gap-2 bg-navy/5 text-navy font-heading font-semibold text-sm px-4 py-2.5 rounded-full border border-navy/10 hover:bg-navy/10 transition-colors"
+          >
+            🇮🇳 हिन्दी
+          </button>
         </div>
         <button
           id="menuBtn"
@@ -102,12 +124,20 @@
         id="mobileMenu"
         class="hidden lg:hidden bg-white border-t border-navy/10 px-5 py-4 space-y-1 text-sm font-medium"
       >
-        <a href="#home" class="block py-2">Home</a>
-        <a href="#about" class="block py-2">About Me</a>
-        <a href="#services" class="block py-2">Services</a>
-        <a href="#work" class="block py-2">My Work</a>
-        <a href="#reviews" class="block py-2">Reviews</a>
-        <a href="#contact" class="block py-2">Contact</a>
+        <a href="#home" data-lang="navHome" class="block py-2">Home</a>
+        <a href="#about" data-lang="navAbout" class="block py-2">About Me</a>
+        <a href="#services" data-lang="navServices" class="block py-2">Services</a>
+        <a href="#work" data-lang="navWork" class="block py-2">My Work</a>
+        <a href="#reviews" data-lang="navReviews" class="block py-2">Reviews</a>
+        <a href="#contact" data-lang="navContact" class="block py-2">Contact</a>
+        <button
+          id="langToggleBtnMobile"
+          type="button"
+          aria-label="Switch language"
+          class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-navy/5 text-navy font-heading font-semibold text-sm px-4 py-2.5 rounded-full border border-navy/10"
+        >
+          🇮🇳 हिन्दी
+        </button>
       </div>
     </header>
 
@@ -119,44 +149,51 @@
         <!-- Left -->
         <div class="reveal order-2 lg:order-1 text-center lg:text-left">
           <span
+            data-lang="heroBadge"
             class="inline-flex items-center gap-2 bg-navy/5 text-navy font-heading font-semibold text-xs px-4 py-2 rounded-full border border-navy/10"
           >
             ⚡ Independent Electrician
           </span>
 
           <h1
+            data-lang="heroTitle"
             class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.75rem] leading-tight text-navy mt-5"
           >
             Hi, I'm Durgesh
           </h1>
           <p
+            data-lang="heroSubtitle"
             class="font-heading font-semibold text-lg sm:text-xl text-ink/85 mt-2"
           >
             Professional Electrical Services for Homes, Shops & New Building
             Projects
           </p>
-          <p class="text-ink/60 mt-4 max-w-md mx-auto lg:mx-0">
+          <p data-lang="heroDesc" class="text-ink/60 mt-4 max-w-md mx-auto lg:mx-0">
             Helping homeowners and builders with safe, reliable electrical
             installations.
           </p>
 
           <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto lg:mx-0 mt-6">
             <div
+              data-lang="heroStat1"
               class="bg-white rounded-xl px-4 py-3 shadow-card text-sm font-medium text-ink/75"
             >
               3+ Years Experience
             </div>
             <div
+              data-lang="heroStat2"
               class="bg-white rounded-xl px-4 py-3 shadow-card text-sm font-medium text-ink/75"
             >
               50+ Completed Projects
             </div>
             <div
+              data-lang="heroStat3"
               class="bg-white rounded-xl px-4 py-3 shadow-card text-sm font-medium text-ink/75"
             >
               Personal Service
             </div>
             <div
+              data-lang="heroStat4"
               class="bg-white rounded-xl px-4 py-3 shadow-card text-sm font-medium text-ink/75"
             >
               Available Nearby Areas
@@ -168,12 +205,14 @@
           >
             <a
               href="tel:+917379121244"
+              data-lang="heroCallBtn"
               class="flex-1 inline-flex items-center justify-center gap-2 bg-navy text-white font-heading font-semibold text-base px-6 py-4 rounded-xl hover:bg-navy-dark transition-colors shadow-lift"
               >📞 Call Now</a
             >
             <a
               href="https://wa.me/7379121244"
               target="_blank"
+              data-lang="heroWhatsappBtn"
               class="flex-1 inline-flex items-center justify-center gap-2 bg-wgreen text-white font-heading font-semibold text-base px-6 py-4 rounded-xl hover:brightness-95 transition shadow-lift"
               >💬 WhatsApp</a
             >
@@ -193,18 +232,22 @@
             />
 
             <span
+              data-lang="heroTag1"
               class="absolute top-4 -left-3 sm:-left-8 bg-white shadow-card rounded-xl px-3 py-2 flex items-center gap-1.5 text-xs sm:text-sm font-heading font-semibold text-navy"
               >⚡ House Wiring</span
             >
             <span
+              data-lang="heroTag2"
               class="absolute top-1/3 -right-2 sm:-right-8 bg-white shadow-card rounded-xl px-3 py-2 flex items-center gap-1.5 text-xs sm:text-sm font-heading font-semibold text-navy"
               >🏠 New House Wiring</span
             >
             <span
+              data-lang="heroTag3"
               class="absolute bottom-20 -left-4 sm:-left-10 bg-white shadow-card rounded-xl px-3 py-2 flex items-center gap-1.5 text-xs sm:text-sm font-heading font-semibold text-navy"
               >💡 Electrical Installation</span
             >
             <span
+              data-lang="heroTag4"
               class="absolute bottom-0 right-0 bg-white shadow-card rounded-xl px-3 py-2 flex items-center gap-1.5 text-xs sm:text-sm font-heading font-semibold text-navy"
               >🔧 Maintenance</span
             >
@@ -235,16 +278,18 @@
         </div>
         <div class="sm:col-span-3 reveal">
           <p
+            data-lang="aboutLabel"
             class="text-xs font-heading font-bold tracking-widest uppercase text-spark"
           >
             About Me
           </p>
           <h2
+            data-lang="aboutTitle"
             class="font-heading font-bold text-2xl sm:text-3xl text-navy mt-2"
           >
             From Blueprint to First Light: Precision Electrical Installations
           </h2>
-          <p class="text-ink/65 mt-4 leading-relaxed">
+          <p data-lang="aboutDesc" class="text-ink/65 mt-4 leading-relaxed">
             I'm an independent electrician with 3+ years of experience across
             Uttar Pradesh. I work on every project myself — no hand-offs, no
             subcontracting. Honest pricing, careful supervision, and safe
@@ -253,16 +298,16 @@
           </p>
           <div class="grid grid-cols-2 gap-3 mt-6 text-sm">
             <div class="flex items-center gap-2 text-ink/70">
-              <span class="text-spark">✔</span> Honest Pricing
+              <span class="text-spark">✔</span> <span data-lang="aboutPoint1">Honest Pricing</span>
             </div>
             <div class="flex items-center gap-2 text-ink/70">
-              <span class="text-spark">✔</span> Personal Supervision
+              <span class="text-spark">✔</span> <span data-lang="aboutPoint2">Personal Supervision</span>
             </div>
             <div class="flex items-center gap-2 text-ink/70">
-              <span class="text-spark">✔</span> Quality-First Work
+              <span class="text-spark">✔</span> <span data-lang="aboutPoint3">Quality-First Work</span>
             </div>
             <div class="flex items-center gap-2 text-ink/70">
-              <span class="text-spark">✔</span> Safety Committed
+              <span class="text-spark">✔</span> <span data-lang="aboutPoint4">Safety Committed</span>
             </div>
           </div>
         </div>
@@ -274,11 +319,13 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center reveal">
           <p
+            data-lang="servicesLabel"
             class="text-xs font-heading font-bold tracking-widest uppercase text-spark"
           >
             Services
           </p>
           <h2
+            data-lang="servicesTitle"
             class="font-heading font-bold text-2xl sm:text-3xl text-navy mt-2"
           >
             Electrical Services
@@ -288,49 +335,49 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">🔌</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service1" class="font-heading font-semibold text-sm text-navy">
               Complete House Wiring
             </p>
           </div>
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">⚡</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service2" class="font-heading font-semibold text-sm text-navy">
               Complete Electrical Installation
             </p>
           </div>
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">🎛️</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service3" class="font-heading font-semibold text-sm text-navy">
               Switch Board Installation
             </p>
           </div>
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">💡</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service4" class="font-heading font-semibold text-sm text-navy">
               Lighting Installation
             </p>
           </div>
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">🌀</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service5" class="font-heading font-semibold text-sm text-navy">
               Ceiling Fan Installation
             </p>
           </div>
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">🛠️</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service6" class="font-heading font-semibold text-sm text-navy">
               Electrical Maintenance
             </p>
           </div>
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">🏪</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service7" class="font-heading font-semibold text-sm text-navy">
               Shop Electrical Work
             </p>
           </div>
           <div class="reveal bg-white rounded-xl2 p-5 shadow-card text-center">
             <div class="text-2xl mb-3">🏢</div>
-            <p class="font-heading font-semibold text-sm text-navy">
+            <p data-lang="service8" class="font-heading font-semibold text-sm text-navy">
               Small Office Electrical Work
             </p>
           </div>
@@ -343,16 +390,18 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center reveal">
           <p
+            data-lang="constructionLabel"
             class="text-xs font-heading font-bold tracking-widest uppercase text-spark"
           >
             New Construction
           </p>
           <h2
+            data-lang="constructionTitle"
             class="font-heading font-bold text-2xl sm:text-3xl text-navy mt-2"
           >
             New Construction Services
           </h2>
-          <p class="text-ink/60 mt-3 max-w-lg mx-auto text-sm">
+          <p data-lang="constructionDesc" class="text-ink/60 mt-3 max-w-lg mx-auto text-sm">
             Electrical and plumbing work during new house construction.
           </p>
         </div>
@@ -360,36 +409,36 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
           <div class="reveal bg-mist border border-navy/10 rounded-xl2 p-6">
             <div class="text-2xl mb-3">🏠</div>
-            <p class="font-heading font-semibold text-navy">
+            <p data-lang="construction1" class="font-heading font-semibold text-navy">
               New House Electrical Installation
             </p>
           </div>
           <div class="reveal bg-mist border border-navy/10 rounded-xl2 p-6">
             <div class="text-2xl mb-3">📐</div>
-            <p class="font-heading font-semibold text-navy">
+            <p data-lang="construction2" class="font-heading font-semibold text-navy">
               Electrical Layout Planning
             </p>
           </div>
           <div class="reveal bg-mist border border-navy/10 rounded-xl2 p-6">
             <div class="text-2xl mb-3">🚰</div>
-            <p class="font-heading font-semibold text-navy">
+            <p data-lang="construction3" class="font-heading font-semibold text-navy">
               Water Pipeline Installation
             </p>
           </div>
           <div class="reveal bg-mist border border-navy/10 rounded-xl2 p-6">
             <div class="text-2xl mb-3">🚿</div>
-            <p class="font-heading font-semibold text-navy">
+            <p data-lang="construction4" class="font-heading font-semibold text-navy">
               Bathroom & Kitchen Pipeline Installation
             </p>
           </div>
           <div class="reveal bg-mist border border-navy/10 rounded-xl2 p-6">
             <div class="text-2xl mb-3">🤝</div>
-            <p class="font-heading font-semibold text-navy">
+            <p data-lang="construction5" class="font-heading font-semibold text-navy">
               Builder & Architect Coordination
             </p>
           </div>
         </div>
-        <p class="text-sm text-ink/60 mt-6 text-center">
+        <p data-lang="constructionNote" class="text-sm text-ink/60 mt-6 text-center">
           Pipeline work is carried out only as part of new house or building
           construction — not offered as a standalone plumbing repair service.
         </p>
@@ -401,11 +450,13 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center reveal">
           <p
+            data-lang="workLabel"
             class="text-xs font-heading font-bold tracking-widest uppercase text-spark"
           >
             Portfolio
           </p>
           <h2
+            data-lang="workTitle"
             class="font-heading font-bold text-2xl sm:text-3xl text-navy mt-2"
           >
             My Work
@@ -415,30 +466,35 @@
         <div class="flex flex-wrap justify-center gap-2 mt-8" id="filterBar">
           <button
             data-filter="all"
+            data-lang="filterAll"
             class="filter-btn reveal active-filter text-xs font-heading font-semibold px-4 py-2 rounded-full bg-navy text-white"
           >
             All
           </button>
           <button
             data-filter="houses"
+            data-lang="filterHouses"
             class="filter-btn reveal text-xs font-heading font-semibold px-4 py-2 rounded-full bg-white text-navy border border-navy/15"
           >
             🏠 Houses
           </button>
           <button
             data-filter="builders"
+            data-lang="filterBuilders"
             class="filter-btn reveal text-xs font-heading font-semibold px-4 py-2 rounded-full bg-white text-navy border border-navy/15"
           >
             🏗 Builder Projects
           </button>
           <button
             data-filter="shops"
+            data-lang="filterShops"
             class="filter-btn reveal text-xs font-heading font-semibold px-4 py-2 rounded-full bg-white text-navy border border-navy/15"
           >
             🏪 Shops
           </button>
           <button
             data-filter="commercial"
+            data-lang="filterCommercial"
             class="filter-btn reveal text-xs font-heading font-semibold px-4 py-2 rounded-full bg-white text-navy border border-navy/15"
           >
             🏢 Small Commercial
@@ -457,11 +513,13 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center reveal">
           <p
+            data-lang="whyLabel"
             class="text-xs font-heading font-bold tracking-widest uppercase text-spark"
           >
             Why People Choose Me
           </p>
           <h2
+            data-lang="whyTitle"
             class="font-heading font-bold text-2xl sm:text-3xl text-white mt-2"
           >
             What you can expect
@@ -473,49 +531,49 @@
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">Personal Attention</p>
+            <p data-lang="why1" class="text-sm text-white/85">Personal Attention</p>
           </div>
           <div
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">Honest Pricing</p>
+            <p data-lang="why2" class="text-sm text-white/85">Honest Pricing</p>
           </div>
           <div
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">Quality Work</p>
+            <p data-lang="why3" class="text-sm text-white/85">Quality Work</p>
           </div>
           <div
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">Clean Installation</p>
+            <p data-lang="why4" class="text-sm text-white/85">Clean Installation</p>
           </div>
           <div
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">On-Time Completion</p>
+            <p data-lang="why5" class="text-sm text-white/85">On-Time Completion</p>
           </div>
           <div
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">Reliable Communication</p>
+            <p data-lang="why6" class="text-sm text-white/85">Reliable Communication</p>
           </div>
           <div
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">Safe Electrical Practices</p>
+            <p data-lang="why7" class="text-sm text-white/85">Safe Electrical Practices</p>
           </div>
           <div
             class="reveal flex items-center gap-2.5 bg-white/5 rounded-xl p-4"
           >
             <span class="text-spark">✔</span>
-            <p class="text-sm text-white/85">
+            <p data-lang="why8" class="text-sm text-white/85">
               New House Construction Experience
             </p>
           </div>
@@ -528,11 +586,13 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center reveal">
           <p
+            data-lang="reviewsLabel"
             class="text-xs font-heading font-bold tracking-widest uppercase text-spark"
           >
             Reviews
           </p>
           <h2
+            data-lang="reviewsTitle"
             class="font-heading font-bold text-2xl sm:text-3xl text-navy mt-2"
           >
             Customer Reviews
@@ -551,11 +611,11 @@
                 <p class="font-heading font-semibold text-sm text-navy">
                   Anita Sharma
                 </p>
-                <p class="text-xs text-ink/50">Gomti Nagar, Lucknow</p>
+                <p data-lang="review1Location" class="text-xs text-ink/50">Gomti Nagar, Lucknow</p>
               </div>
             </div>
             <div class="text-spark text-sm mt-3">★★★★★</div>
-            <p class="text-sm text-ink/65 mt-2 leading-relaxed">
+            <p data-lang="review1Text" class="text-sm text-ink/65 mt-2 leading-relaxed">
               Rewired our whole house neatly and explained everything clearly.
               Very reliable.
             </p>
@@ -571,11 +631,11 @@
                 <p class="font-heading font-semibold text-sm text-navy">
                   Vikram Kapoor
                 </p>
-                <p class="text-xs text-ink/50">Builder, Indira Nagar</p>
+                <p data-lang="review2Location" class="text-xs text-ink/50">Builder, Indira Nagar</p>
               </div>
             </div>
             <div class="text-spark text-sm mt-3">★★★★★</div>
-            <p class="text-sm text-ink/65 mt-2 leading-relaxed">
+            <p data-lang="review2Text" class="text-sm text-ink/65 mt-2 leading-relaxed">
               We've used Durgesh on three builder projects. Always on time and
               fair pricing.
             </p>
@@ -591,11 +651,11 @@
                 <p class="font-heading font-semibold text-sm text-navy">
                   Sanjay Rastogi
                 </p>
-                <p class="text-xs text-ink/50">Shop Owner, Aminabad</p>
+                <p data-lang="review3Location" class="text-xs text-ink/50">Shop Owner, Aminabad</p>
               </div>
             </div>
             <div class="text-spark text-sm mt-3">★★★★★</div>
-            <p class="text-sm text-ink/65 mt-2 leading-relaxed">
+            <p data-lang="review3Text" class="text-sm text-ink/65 mt-2 leading-relaxed">
               Handled all the electrical work for my new shop. Clean wiring, no
               issues since.
             </p>
@@ -609,11 +669,13 @@
       <div class="max-w-2xl mx-auto px-4 sm:px-6">
         <div class="text-center reveal">
           <p
+            data-lang="faqLabel"
             class="text-xs font-heading font-bold tracking-widest uppercase text-spark"
           >
             FAQ
           </p>
           <h2
+            data-lang="faqTitle"
             class="font-heading font-bold text-2xl sm:text-3xl text-navy mt-2"
           >
             Frequently Asked Questions
@@ -627,7 +689,7 @@
             <button
               class="faq-q w-full flex justify-between items-center gap-4 px-5 py-4 text-left font-heading font-semibold text-navy text-sm"
             >
-              Do you work on new houses?
+              <span data-lang="faq1Q">Do you work on new houses?</span>
               <span class="faq-icon text-spark shrink-0 transition-transform"
                 >＋</span
               >
@@ -635,7 +697,7 @@
             <div
               class="faq-a max-h-0 overflow-hidden transition-all duration-300"
             >
-              <p class="px-5 pb-4 text-sm text-ink/65">
+              <p data-lang="faq1A" class="px-5 pb-4 text-sm text-ink/65">
                 Yes — I handle electrical installation and layout planning for
                 new house construction, plus pipeline work as part of that
                 project.
@@ -648,7 +710,7 @@
             <button
               class="faq-q w-full flex justify-between items-center gap-4 px-5 py-4 text-left font-heading font-semibold text-navy text-sm"
             >
-              Do you work with builders?
+              <span data-lang="faq2Q">Do you work with builders?</span>
               <span class="faq-icon text-spark shrink-0 transition-transform"
                 >＋</span
               >
@@ -656,7 +718,7 @@
             <div
               class="faq-a max-h-0 overflow-hidden transition-all duration-300"
             >
-              <p class="px-5 pb-4 text-sm text-ink/65">
+              <p data-lang="faq2A" class="px-5 pb-4 text-sm text-ink/65">
                 Yes, I regularly coordinate with builders and architects on
                 electrical work for houses under construction.
               </p>
@@ -668,7 +730,7 @@
             <button
               class="faq-q w-full flex justify-between items-center gap-4 px-5 py-4 text-left font-heading font-semibold text-navy text-sm"
             >
-              Can I contact you on WhatsApp?
+              <span data-lang="faq3Q">Can I contact you on WhatsApp?</span>
               <span class="faq-icon text-spark shrink-0 transition-transform"
                 >＋</span
               >
@@ -676,7 +738,7 @@
             <div
               class="faq-a max-h-0 overflow-hidden transition-all duration-300"
             >
-              <p class="px-5 pb-4 text-sm text-ink/65">
+              <p data-lang="faq3A" class="px-5 pb-4 text-sm text-ink/65">
                 Yes — WhatsApp is usually the fastest way to reach me. Just tap
                 the WhatsApp button anywhere on this site.
               </p>
@@ -688,7 +750,7 @@
             <button
               class="faq-q w-full flex justify-between items-center gap-4 px-5 py-4 text-left font-heading font-semibold text-navy text-sm"
             >
-              Which areas do you serve?
+              <span data-lang="faq4Q">Which areas do you serve?</span>
               <span class="faq-icon text-spark shrink-0 transition-transform"
                 >＋</span
               >
@@ -696,7 +758,7 @@
             <div
               class="faq-a max-h-0 overflow-hidden transition-all duration-300"
             >
-              <p class="px-5 pb-4 text-sm text-ink/65">
+              <p data-lang="faq4A" class="px-5 pb-4 text-sm text-ink/65">
                 I mainly serve Varanasi and nearby areas across Uttar Pradesh.
                 Message me your location and I'll confirm availability.
               </p>
@@ -708,7 +770,7 @@
             <button
               class="faq-q w-full flex justify-between items-center gap-4 px-5 py-4 text-left font-heading font-semibold text-navy text-sm"
             >
-              Do you visit the site before starting work?
+              <span data-lang="faq5Q">Do you visit the site before starting work?</span>
               <span class="faq-icon text-spark shrink-0 transition-transform"
                 >＋</span
               >
@@ -716,7 +778,7 @@
             <div
               class="faq-a max-h-0 overflow-hidden transition-all duration-300"
             >
-              <p class="px-5 pb-4 text-sm text-ink/65">
+              <p data-lang="faq5A" class="px-5 pb-4 text-sm text-ink/65">
                 For most jobs, yes — I visit first to understand the scope and
                 give an accurate quote before starting.
               </p>
@@ -731,15 +793,17 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="text-center max-w-2xl mx-auto reveal">
           <span
+            data-lang="contactLabel"
             class="font-mono-label text-xs text-safety-700 uppercase font-semibold"
             >Get In Touch</span
           >
           <h2
+            data-lang="contactTitle"
             class="font-display font-bold text-navy text-3xl sm:text-4xl mt-3"
           >
             Tell me about your work
           </h2>
-          <p class="text-slate-600 mt-4">
+          <p data-lang="contactDesc" class="text-slate-600 mt-4">
             Fill in the form or reach us directly — I'll get back to you soon.
           </p>
         </div>
@@ -769,8 +833,8 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-navy">Address</p>
-                <p class="text-sm text-slate-500 mt-1">
+                <p data-lang="contactAddressLabel" class="font-semibold text-navy">Address</p>
+                <p data-lang="contactAddressText" class="text-sm text-slate-500 mt-1">
                   Chakiya Mason, Aurnihar<br />Ghazipur, Uttar Pradesh 233221
                 </p>
               </div>
@@ -791,7 +855,7 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-navy">Phone</p>
+                <p data-lang="contactPhoneLabel" class="font-semibold text-navy">Phone</p>
                 <p class="text-sm text-slate-500 mt-1">+91 73791 21244</p>
               </div>
             </div>
@@ -816,7 +880,7 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-navy">Email</p>
+                <p data-lang="contactEmailLabel" class="font-semibold text-navy">Email</p>
                 <p class="text-sm text-slate-500 mt-1">
                   hello@voltandvalve.co.in
                 </p>
@@ -846,8 +910,8 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-navy">Working Hours</p>
-                <p class="text-sm text-slate-500 mt-1">
+                <p data-lang="contactHoursLabel" class="font-semibold text-navy">Working Hours</p>
+                <p data-lang="contactHoursText" class="text-sm text-slate-500 mt-1">
                   Mon–Sat: 8:00 AM – 8:00 PM<br />24/7 for emergency call-outs
                 </p>
               </div>
@@ -865,14 +929,14 @@
                 </div>
               </div>
               <div>
-                <p class="font-semibold text-white">Chat on WhatsApp</p>
-                <p class="text-sm text-neutral-200/80 opacity-80 mt-1">
+                <p data-lang="contactWhatsappTitle" class="font-semibold text-white">Chat on WhatsApp</p>
+                <p data-lang="contactWhatsappDesc" class="text-sm text-neutral-200/80 opacity-80 mt-1">
                   Scan to message us directly, or tap below on mobile.
                 </p>
                 <a
                   href="https://wa.me/7379121244"
                   class="inline-flex items-center gap-1 text-spark font-semibold text-sm mt-2 hover:gap-2 transition-all"
-                  >Open WhatsApp <span>→</span></a
+                  ><span data-lang="contactWhatsappBtn">Open WhatsApp</span> <span>→</span></a
                 >
               </div>
             </div>
@@ -886,75 +950,106 @@
             >
               <div class="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="text-sm font-semibold text-navy">Name</label>
+                  <label data-lang="formNameLabel" class="text-sm font-semibold text-navy">Name</label>
                   <input
-                    required
                     type="text"
                     name="name"
+                    required
                     placeholder="Your full name"
+                    data-placeholder="formNamePlaceholder"
                     class="w-full mt-2 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label class="text-sm font-semibold text-navy">Phone</label>
+                  <label data-lang="formPhoneLabel" class="text-sm font-semibold text-navy">Phone</label>
                   <input
                     required
                     type="tel"
                     name="phone"
                     placeholder="+91 00000 00000"
+                    data-placeholder="formPhonePlaceholder"
                     class="w-full mt-2 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
                   />
                 </div>
               </div>
               <div>
-                <label class="text-sm font-semibold text-navy">Email</label>
+                <label data-lang="formEmailLabel" class="text-sm font-semibold text-navy">Email</label>
                 <input
                   required
                   type="email"
                   name="email"
                   placeholder="you@email.com"
+                  data-placeholder="formEmailPlaceholder"
                   class="w-full mt-2 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
                 />
               </div>
               <div>
-                <label class="text-sm font-semibold text-navy"
+                <label data-lang="formServiceLabel" class="text-sm font-semibold text-navy"
                   >Service Required</label
                 >
                 <select
                   name="service"
                   class="w-full mt-2 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent bg-white"
                 >
-                  <option>Electrical — Residential(Complete House)</option>
-                  <option>
-                    Electrical — Commercial(Shops, Restaurant, schools, etc...)
+                  <option data-lang="serviceOption1">House Wiring</option>
+                  <option data-lang="serviceOption2">Electrical Repair & Maintenance</option>
+                  <option data-lang="serviceOption3">Lighting Installation</option>
+                  <option data-lang="serviceOption4">Switch Board Installation</option>
+                  <option data-lang="serviceOption5">Shop & Office Electrical Work</option>
+                  <option data-lang="serviceOption6">Builder Project</option>
+                  <option data-lang="serviceOption7">
+                    New House Construction (Electrical + Plumbing)
                   </option>
-                  <option>
-                    Plumbing — Residential( Complete Home and Kitchens)
-                  </option>
-                  <option>
-                    Plumbing — (Commercial Shops, Restaurant, schools, etc...)
-                  </option>
-                  <option>Construction Support</option>
-                  <option>Emergency Call-out</option>
+                  <option data-lang="serviceOption8">Other</option>
                 </select>
               </div>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label data-lang="formLocationLabel" class="text-sm font-semibold text-navy"
+                    >Project Location</label
+                  >
+                  <input
+                    type="text"
+                    name="location"
+                    required
+                    placeholder="City / Area / Address"
+                    data-placeholder="formLocationPlaceholder"
+                    class="w-full mt-2 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label data-lang="formTimeLabel" class="text-sm font-semibold text-navy"
+                    >Preferred Visit Date & Time</label
+                  >
+                  <input
+                    type="datetime-local"
+                    name="time"
+                    class="w-full mt-2 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
+                  />
+                </div>
+              </div>
+
               <div>
-                <label class="text-sm font-semibold text-navy">Message</label>
+                <label data-lang="formMessageLabel" class="text-sm font-semibold text-navy">Message</label>
                 <textarea
                   rows="4"
                   name="message"
-                  placeholder="Tell us a bit about the job..."
+                  placeholder="Describe your work requirement..."
+                  data-placeholder="formMessagePlaceholder"
                   class="w-full mt-2 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
                 ></textarea>
               </div>
               <button
                 type="submit"
+                data-lang="formSendBtn"
                 class="w-full bg-navy hover:bg-navy-700 text-white font-semibold py-4 rounded-xl2 shadow-soft transition hover:-translate-y-0.5"
               >
                 Send Message
               </button>
               <p
                 id="form-success"
+                data-lang="formSuccessMsg"
                 class="hidden text-sm text-center font-medium text-navy bg-spark-50 border border-spark-100 rounded-lg py-3"
               >
                 Thanks — your message has been noted. We'll get back to you
@@ -977,7 +1072,7 @@
           />
           <div>
             <p class="font-heading font-bold">Durgesh Prajapati</p>
-            <p class="text-sm text-navy-100/70 mt-4 leading-relaxed">
+            <p data-lang="footerDesc" class="text-sm text-navy-100/70 mt-4 leading-relaxed">
               Independent &amp; Licensed Electrician specializing in residential
               wiring, builder projects, and new house electrical installations.
             </p>
@@ -985,27 +1080,29 @@
         </div>
         <div>
           <p
+            data-lang="footerQuickLinks"
             class="font-heading font-semibold text-sm mb-3 uppercase font-mono-label tracking-wide"
           >
             Quick Links
           </p>
           <div class="grid grid-cols-2 gap-y-2 text-sm text-white/60">
-            <a href="#about" class="hover:text-spark transition-colors"
+            <a href="#about" data-lang="footerLinkAbout" class="hover:text-spark transition-colors"
               >About Me</a
             >
-            <a href="#services" class="hover:text-spark transition-colors"
+            <a href="#services" data-lang="footerLinkServices" class="hover:text-spark transition-colors"
               >Services</a
             >
-            <a href="#work" class="hover:text-spark transition-colors"
+            <a href="#work" data-lang="footerLinkWork" class="hover:text-spark transition-colors"
               >My Work</a
             >
-            <a href="#contact" class="hover:text-spark transition-colors"
+            <a href="#contact" data-lang="footerLinkContact" class="hover:text-spark transition-colors"
               >Contact</a
             >
           </div>
         </div>
         <div>
           <p
+            data-lang="footerFollow"
             class="font-semibold text-white text-sm uppercase font-mono-label tracking-wide"
           >
             Follow Us
@@ -1061,6 +1158,7 @@
       </div>
       <div
         class="max-w-6xl mx-auto px-4 sm:px-6 border-t border-white/10 mt-8 pt-5 text-xs text-white/40 text-center"
+        data-lang="footerCopyright"
       >
         © 2026 Durgesh Prajapati. Independent Electrician, Uttar Pradesh.
       </div>
@@ -1072,209 +1170,21 @@
     >
       <a
         href="tel:+917379121244"
+        data-lang="stickyCallBtn"
         class="flex items-center justify-center gap-2 py-4 bg-navy text-white font-heading font-semibold text-sm"
         >📞 Call Now</a
       >
       <a
         href="https://wa.me/7379121244"
         target="_blank"
+        data-lang="stickyWhatsappBtn"
         class="flex items-center justify-center gap-2 py-4 bg-wgreen text-white font-heading font-semibold text-sm"
         >💬 WhatsApp</a
       >
     </div>
 
-    <script>
-      // Mobile menu
-      const menuBtn = document.getElementById("menuBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
-      const iconOpen = document.getElementById("iconOpen");
-      const iconClose = document.getElementById("iconClose");
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        iconOpen.classList.toggle("hidden");
-        iconClose.classList.toggle("hidden");
-      });
-      document.querySelectorAll("#mobileMenu a").forEach((a) =>
-        a.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-          iconOpen.classList.remove("hidden");
-          iconClose.classList.add("hidden");
-        }),
-      );
-
-      // Scroll reveal (light, respects prefers-reduced-motion via CSS)
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("in");
-              io.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.12 },
-      );
-      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-      // FAQ accordion
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        const btn = item.querySelector(".faq-q");
-        const ans = item.querySelector(".faq-a");
-        const icon = item.querySelector(".faq-icon");
-        btn.addEventListener("click", () => {
-          const isOpen = ans.style.maxHeight && ans.style.maxHeight !== "0px";
-          document
-            .querySelectorAll(".faq-a")
-            .forEach((a) => (a.style.maxHeight = "0px"));
-          document
-            .querySelectorAll(".faq-icon")
-            .forEach((i) => (i.style.transform = "rotate(0deg)"));
-          if (!isOpen) {
-            ans.style.maxHeight = ans.scrollHeight + "px";
-            icon.style.transform = "rotate(45deg)";
-          }
-        });
-      });
-
-      // Contact form (demo only)
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", (e) => {
-          e.preventDefault();
-          const status = document.getElementById("form-success");
-          status.classList.remove("hidden");
-          status.classList.add("text-navy/60");
-          e.target.reset();
-        });
-
-      // Projects data — electrical only, plumbing appears only inside New Construction section above
-      const projects = [
-        {
-          title: "3 BHK House Complete Wiring",
-          category: "houses",
-          categoryLabel: "🏠 Houses",
-          location: "Gomti Nagar, Lucknow",
-          work: "Full house wiring & switchboard installation",
-          desc: "Rewired and fitted a new 3 BHK independent house with modern switch panels.",
-          icon: "🏠",
-        },
-        {
-          title: "New Build Electrical Rough-In",
-          category: "builders",
-          categoryLabel: "🏗 Builder Projects",
-          location: "Sushant Golf City, Lucknow",
-          work: "Conduit laying & wiring rough-in during construction",
-          desc: "Coordinated with the builder's site team for first-fix electrical work.",
-          icon: "🏗",
-        },
-        {
-          title: "Retail Shop Electrical Setup",
-          category: "shops",
-          categoryLabel: "🏪 Shops",
-          location: "Aminabad, Lucknow",
-          work: "Lighting, display circuits & safety switch panel",
-          desc: "Complete electrical fit-out for a clothing retail shop.",
-          icon: "🏪",
-        },
-        {
-          title: "Architect-Specified Lighting",
-          category: "houses",
-          categoryLabel: "🏠 Houses",
-          location: "Hazratganj, Lucknow",
-          work: "Layered lighting circuits & dimmer switches",
-          desc: "Executed a lighting plan specified by the project architect.",
-          icon: "💡",
-        },
-        {
-          title: "Small Office Electrical Fit-Out",
-          category: "commercial",
-          categoryLabel: "🏢 Small Commercial",
-          location: "Indira Nagar, Lucknow",
-          work: "Workstation wiring, lighting & backup circuit",
-          desc: "Set up electrical circuits for a small office including backup power.",
-          icon: "🏢",
-        },
-        {
-          title: "Duplex House Full Rewiring",
-          category: "houses",
-          categoryLabel: "🏠 Houses",
-          location: "Jankipuram, Lucknow",
-          work: "Complete rewiring & new distribution board",
-          desc: "Brought an older duplex house up to current safety standards.",
-          icon: "⚡",
-        },
-        {
-          title: "Row House Electrical for New Construction",
-          category: "builders",
-          categoryLabel: "🏗 Builder Projects",
-          location: "Vrindavan Yojana, Lucknow",
-          work: "Electrical layout & installation across 4 houses",
-          desc: "Completed electrical rough-in for a row of houses for the same developer.",
-          icon: "🏗",
-        },
-        {
-          title: "Café Electrical Setup",
-          category: "shops",
-          categoryLabel: "🏪 Shops",
-          location: "Hazratganj, Lucknow",
-          work: "Kitchen equipment wiring & lighting circuits",
-          desc: "Handled full electrical fit-out meeting commercial kitchen safety needs.",
-          icon: "☕",
-        },
-        {
-          title: "Coaching Institute Electrical Work",
-          category: "commercial",
-          categoryLabel: "🏢 Small Commercial",
-          location: "Mahanagar, Lucknow",
-          work: "Classroom lighting & switchboard installation",
-          desc: "Installed lighting and power points across five classrooms.",
-          icon: "🏫",
-        },
-      ];
-
-      const grid = document.getElementById("projectGrid");
-      function renderProjects(filter) {
-        grid.innerHTML = "";
-        projects
-          .filter((p) => filter === "all" || p.category === filter)
-          .forEach((p) => {
-            const card = document.createElement("div");
-            card.className =
-              "reveal in bg-white rounded-xl2 overflow-hidden border border-navy/10 shadow-card";
-            card.innerHTML = `
-        <div class="h-40 bg-navy flex items-center justify-center text-5xl">${p.icon}</div>
-        <div class="p-5">
-          <span class="text-[11px] font-heading font-semibold text-spark uppercase tracking-wide">${p.categoryLabel}</span>
-          <h3 class="font-heading font-bold text-navy mt-1.5 leading-snug">${p.title}</h3>
-          <p class="text-xs text-ink/50 mt-2">📍 ${p.location}</p>
-          <p class="text-xs text-ink/50 mt-1">🔧 ${p.work}</p>
-          <p class="text-sm text-ink/60 mt-2">${p.desc}</p>
-        </div>`;
-            grid.appendChild(card);
-            io.observe(card);
-          });
-      }
-      renderProjects("all");
-
-      document.querySelectorAll(".filter-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".filter-btn").forEach((b) => {
-            b.classList.remove("active-filter", "bg-navy", "text-white");
-            b.classList.add(
-              "bg-white",
-              "text-navy",
-              "border",
-              "border-navy/15",
-            );
-          });
-          btn.classList.add("active-filter", "bg-navy", "text-white");
-          btn.classList.remove("bg-white", "border", "border-navy/15");
-          renderProjects(btn.dataset.filter);
-        });
-      });
-      document.querySelectorAll(".reveal").forEach((el) => {
-        io.observe(el);
-      });
-    </script>
+    <script src="./js/translations.js"></script>
+    <script src="./js/language.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
